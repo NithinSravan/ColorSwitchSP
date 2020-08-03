@@ -369,7 +369,7 @@ function setup() {
     s = 0;
     max = -1;
     gameOver = 0;
-    localStorage.setItem('gameStatus',gameOver);
+    sessionStorage.setItem('gameStatus',gameOver);
     if (typeof (restart) != 'undefined' && restart != null) {
         song.pause();
         bestScore.style.display = "none";
@@ -459,9 +459,9 @@ function setBallVel() {
 }
 function best() {
 
-    localStorage.setItem(`score`, JSON.stringify(s));
-    localStorage.setItem('gameStatus',gameOver);
-    bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
+    sessionStorage.setItem(`score`, JSON.stringify(s));
+    sessionStorage.setItem('gameStatus',gameOver);
+    bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(sessionStorage.getItem(`score`))}`;
     bestScore.style.display = "block";
 }
 function render() {
