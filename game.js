@@ -54,8 +54,6 @@ window.onload = function () {
     canvas.height = window.innerHeight;
     clearInterval(blast);
     clearInterval(loop);
-    console.log("best")
-    iframeWindow.postMessage("hi","*")
     setup();
 }
 function distance(x1, y1, x2, y2) {
@@ -365,8 +363,7 @@ class Sprite{
         }
     }
 }
-const iframe=document.getElementsByTagName("iframe")[0];
-const iframeWindow=iframe.contentWindow;
+
 function setup() {
     ball = new Ball(canvas.width / 2, (canvas.height / 2 + canvas.height * 0.3), canvas.height * 0.015, "#F5FF25");
     s = 0;
