@@ -457,10 +457,15 @@ function setBallVel() {
     else
         ball.vy = Math.min(canvas.height * 0.01, 4.25);
 }
+const iframe=document.getElementsByTagName("iframe")[0];
+const iframeWindow=iframe.contentWindow;
+
 function best() {
 
     localStorage.setItem(`score`, JSON.stringify(s));
     localStorage.setItem('gameStatus',gameOver);
+    
+    iframeWindow.postMessage("hi","http://localhost:4200")
     bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
     bestScore.style.display = "block";
 }

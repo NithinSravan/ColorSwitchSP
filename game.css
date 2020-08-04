@@ -4,6 +4,9 @@
     box-sizing: border-box;
     user-select: none;
 }
+iframe{
+    visibility: hidden;
+}
 body{
     margin:0;
     padding: 0;
