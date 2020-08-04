@@ -464,8 +464,8 @@ function best() {
 
     localStorage.setItem(`score`, JSON.stringify(s));
     localStorage.setItem('gameStatus',gameOver);
-    
-    iframeWindow.postMessage("hi","http://localhost:4200")
+    console.log("best")
+    iframeWindow.postMessage("hi","*")
     bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
     bestScore.style.display = "block";
 }
