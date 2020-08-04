@@ -54,6 +54,8 @@ window.onload = function () {
     canvas.height = window.innerHeight;
     clearInterval(blast);
     clearInterval(loop);
+    console.log("best")
+    iframeWindow.postMessage("hi","*")
     setup();
 }
 function distance(x1, y1, x2, y2) {
@@ -371,8 +373,7 @@ function setup() {
     max = -1;
     gameOver = 0;
     localStorage.setItem('gameStatus',gameOver);
-    console.log("best")
-    iframeWindow.postMessage("hi","*")
+ 
     if (typeof (restart) != 'undefined' && restart != null) {
         song.pause();
         bestScore.style.display = "none";
