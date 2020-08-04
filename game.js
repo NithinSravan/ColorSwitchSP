@@ -96,8 +96,9 @@ function explode() {
             particles[i].update();
         }
         score();
-        best();
+      
     }, 16);
+    best();
     gameOver = 1;
     restartButton();
 
@@ -369,8 +370,6 @@ function setup() {
     s = 0;
     max = -1;
     gameOver = 0;
-    localStorage.setItem('gameStatus',gameOver);
-    parent.postMessage("hi","*")
     if (typeof (restart) != 'undefined' && restart != null) {
         song.pause();
         bestScore.style.display = "none";
@@ -462,11 +461,10 @@ function setBallVel() {
 
 function best() {
 
-    localStorage.setItem(`score`, JSON.stringify(s));
-    localStorage.setItem('gameStatus',gameOver);
+    parent.postMessage(s,"*")
 
-    bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
-    bestScore.style.display = "block";
+    // bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
+    // bestScore.style.display = "block";
 }
 function render() {
     ctx.clearRect(0, 0, innerWidth, innerHeight);
