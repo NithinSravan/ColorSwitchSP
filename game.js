@@ -363,13 +363,16 @@ class Sprite{
         }
     }
 }
-
+const iframe=document.getElementsByTagName("iframe")[0];
+const iframeWindow=iframe.contentWindow;
 function setup() {
     ball = new Ball(canvas.width / 2, (canvas.height / 2 + canvas.height * 0.3), canvas.height * 0.015, "#F5FF25");
     s = 0;
     max = -1;
     gameOver = 0;
     localStorage.setItem('gameStatus',gameOver);
+    console.log("best")
+    iframeWindow.postMessage("hi","*")
     if (typeof (restart) != 'undefined' && restart != null) {
         song.pause();
         bestScore.style.display = "none";
@@ -457,15 +460,13 @@ function setBallVel() {
     else
         ball.vy = Math.min(canvas.height * 0.01, 4.25);
 }
-const iframe=document.getElementsByTagName("iframe")[0];
-const iframeWindow=iframe.contentWindow;
+
 
 function best() {
 
     localStorage.setItem(`score`, JSON.stringify(s));
     localStorage.setItem('gameStatus',gameOver);
-    console.log("best")
-    iframeWindow.postMessage("hi","*")
+
     bestScore.innerHTML = `Score: ${s}<br>Best Score: ${JSON.parse(localStorage.getItem(`score`))}`;
     bestScore.style.display = "block";
 }
