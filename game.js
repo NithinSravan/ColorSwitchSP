@@ -370,7 +370,7 @@ function setup() {
     max = -1;
     gameOver = 0;
     localStorage.setItem('gameStatus',gameOver);
-    parent.postMessage("hi",location.origin)
+    parent.postMessage("hi","*")
     if (typeof (restart) != 'undefined' && restart != null) {
         song.pause();
         bestScore.style.display = "none";
